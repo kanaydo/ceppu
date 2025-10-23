@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+class CreateCeppuLogs < <%= migration_class_name %>
+  def change
+    create_table :<%= @table_name %> do |t| 
+      t.string    :event_id
+      t.string    :level
+      t.text      :message
+      t.datetime  :timestamp
+      t.string    :class_name
+      t.jsonb     :stacktrace
+
+      t.timestamps
+    end
+    add_index :<%= @table_name %>, :key, unique: true
+  end
+end

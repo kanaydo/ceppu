@@ -7,5 +7,9 @@ module Ceppu
         include Ceppu::ControllerMethods
       end
     end
+
+    generators do
+      require 'generators/ceppu/model/model_generator'
+    end
   end
 end
