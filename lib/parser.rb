@@ -22,12 +22,4 @@ module Parser
       }
     }
   end
-
-  def build_transport_payload(exception)
-    [
-      { event_id: event[:event_id], sent_at: Time.now.utc.iso8601 }.to_json,
-      { type: 'event' }.to_json,
-      parse_exeption(exception).to_json
-    ].join("\n")
-  end
 end

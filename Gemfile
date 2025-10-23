@@ -11,4 +11,5 @@ end
 group :test do
   gem 'classy_hash'
   gem 'rspec'
+  gem 'webmock'
 end

@@ -9,7 +9,7 @@ class Ceppu
   extend Transport
 
   def self.create_report(exception)
-    payload = build_transport_payload(exception)
+    payload = parse_exeption(exception)
     send_event(payload)
   end
 

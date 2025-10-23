@@ -1,5 +1,6 @@
 require 'ceppu'
 require 'classy_hash'
+require 'spec_helper'
 
 RSpec.describe Ceppu do
   let!(:schema) do
@@ -29,5 +30,24 @@ RSpec.describe Ceppu do
   rescue StandardError => e
     parsed = described_class.parse_exeption(e)
     expect(ClassyHash.validate(parsed, schema)).to be true
+  end
+
+  it 'should send event' do
+    described_class.sample
+  rescue StandardError => e
+    stub = stub_request(
+      :post,
+      'http://localhost:3000'
+    ).to_return(
+      status: 200,
+      body: '{"message":true}',
+      headers: {
+        'Content-Type' => 'application/json'
+      }
+    )
+    response = described_class.create_report(e)
+    expect(stub).to have_been_requested
+    expect(response.code).to eq('200')
+    expect(response.body).to eq('{"message":true}')
   end
 end
