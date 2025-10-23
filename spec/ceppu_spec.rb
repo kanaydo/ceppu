@@ -47,7 +47,7 @@ RSpec.describe Ceppu::Event do
         'Content-Type' => 'application/json'
       }
     )
-    response = described_class.create_event(e)
+    response = described_class.create_event(e).join.value
     expect(stub).to have_been_requested
     expect(response.code).to eq('200')
     expect(response.body).to eq('{"message":true}')
