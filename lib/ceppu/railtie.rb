@@ -1,5 +1,5 @@
 require 'rails'
-require 'controller_methods'
+require_relative 'controller_methods'
 
 module Ceppu
   class Railtie < Rails::Railtie
