@@ -1,8 +1,8 @@
-require 'ceppu'
+require 'ceppu/event'
 require 'classy_hash'
 require 'spec_helper'
 
-RSpec.describe Ceppu do
+RSpec.describe Ceppu::Event do
   let!(:schema) do
     {
       event_id: String,
@@ -45,7 +45,7 @@ RSpec.describe Ceppu do
         'Content-Type' => 'application/json'
       }
     )
-    response = described_class.create_report(e)
+    response = described_class.create_event(e)
     expect(stub).to have_been_requested
     expect(response.code).to eq('200')
     expect(response.body).to eq('{"message":true}')
