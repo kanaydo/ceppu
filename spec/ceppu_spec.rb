@@ -9,7 +9,9 @@ RSpec.describe Ceppu::Event do
       level: String,
       message: String,
       timestamp: String,
-      exception: Hash
+      type: String,
+      value: String,
+      stacktrace: Hash
     }
   end
 

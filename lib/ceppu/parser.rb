@@ -6,20 +6,14 @@ module Ceppu
         level: 'error',
         message: exception.message,
         timestamp: Time.now.utc.strftime('%d-%m-%Y %H:%M:%S'),
-        exception: {
-          values: [
+        type: exception.class.name,
+        value: exception.message,
+        stacktrace: {
+          frames: exception.backtrace&.map do |line|
             {
-              type: exception.class.name,
-              value: exception.message,
-              stacktrace: {
-                frames: exception.backtrace&.map do |line|
-                  {
-                    filename: line
-                  }
-                end
-              }
+              filename: line
             }
-          ]
+          end
         }
       }
     end
