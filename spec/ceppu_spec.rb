@@ -39,7 +39,7 @@ RSpec.describe Ceppu::Event do
   rescue StandardError => e
     stub = stub_request(
       :post,
-      'http://localhost:3000'
+      'http://localhost:6969'
     ).to_return(
       status: 200,
       body: '{"message":true}',

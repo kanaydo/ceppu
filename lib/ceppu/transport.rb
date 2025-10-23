@@ -1,7 +1,7 @@
 module Ceppu
   module Transport
     def send_event(payload)
-      uri = URI('http://localhost:3000')
+      uri = URI('http://localhost:6969')
       body = payload.to_json
       req = Net::HTTP::Post.new(uri)
       req['Content-Type'] = 'application/json'
