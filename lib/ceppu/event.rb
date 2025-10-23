@@ -1,3 +1,7 @@
+require 'net/http'
+require 'json'
+require 'uri'
+
 require_relative 'parser'
 require_relative 'transport'
 

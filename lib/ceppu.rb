@@ -1,6 +1,4 @@
-require 'net/http'
-require 'json'
-require 'uri'
+require 'ceppu/controller_methods'
 
 if defined?(Rails) # rubocop:disable Style/IfUnlessModifier
   require 'ceppu/railtie'
