@@ -8,8 +8,10 @@ module Ceppu
       # req['Authorization'] = 'Bearer your_token_here' # optional
       req.body = body
 
-      Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == 'https') do |http|
-        http.request(req)
+      Thread.new do
+        Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == 'https') do |http|
+          http.request(req)
+        end
       end
     end
   end
