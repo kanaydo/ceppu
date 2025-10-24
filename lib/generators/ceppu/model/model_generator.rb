@@ -27,7 +27,7 @@ module Ceppu
 
       def create_model_file
         # We use our custom instance variable for the file path
-        template 'ceppu.rb.tt', File.join('app/models', "#{@model_name.underscore}.rb")
+        template 'ceppu_log.rb.tt', File.join('app/models', "#{@model_name.underscore}.rb")
       end
 
       def create_migration_file
