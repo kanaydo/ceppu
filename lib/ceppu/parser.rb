@@ -17,10 +17,15 @@ module Ceppu
       }
     end
 
-    def parse_as_http_params(exception)
-      params = parse_exeption(exception)
-      params[:timestamp] = params[:timestamp].strftime('%d-%m-%Y %H:%M:%S')
-      params
+    def parse_to_params(log)
+      {
+        event_id: log.event_id,
+        level: log.level,
+        message: log.message,
+        timestamp: log.timestamp.strftime('%d-%m-%Y %H:%M:%S'),
+        class_name: log.class_name,
+        stacktrace: log.stacktrace
+      }
     end
   end
 end
