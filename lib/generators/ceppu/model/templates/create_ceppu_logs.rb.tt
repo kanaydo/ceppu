@@ -2,7 +2,7 @@
 
 class CreateCeppuLogs < <%= migration_class_name %>
   def change
-    create_table :<%= @table_name %> do |t| 
+    create_table :<%= @table_name %><%= @primary_key_type == :uuid ? ', id: :uuid' : '' %> do |t|
       t.string    :event_id
       t.string    :level
       t.text      :message
@@ -12,6 +12,5 @@ class CreateCeppuLogs < <%= migration_class_name %>
 
       t.timestamps
     end
-    add_index :<%= @table_name %>, :key, unique: true
   end
 end

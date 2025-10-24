@@ -1,6 +1,4 @@
 # frozen_string_literal: true
 
 class <%= @model_name %> < ApplicationRecord
-  # Static content for your required model
-  # Example: validates :key, presence: true
 end

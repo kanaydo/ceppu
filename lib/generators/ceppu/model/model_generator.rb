@@ -21,6 +21,7 @@ module Ceppu
       # Since we aren't using command-line input, we define variables
       # based on the static names you want in your template.
       def set_model_and_migration_variables
+        @primary_key_type = Rails.application.config.generators.options[:active_record][:primary_key_type]
         @model_name = 'CeppuLog'
         @table_name = 'ceppu_logs'
       end
