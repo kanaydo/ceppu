@@ -4,15 +4,17 @@ require 'uri'
 
 require_relative 'parser'
 require_relative 'transport'
+require_relative 'store'
 
 module Ceppu
   class Event
     extend Parser
     extend Transport
+    extend Store
 
     def self.create_event(exception)
       payload = parse_exeption(exception)
-      send_event(payload)
+      save_event(payload)
     end
 
     def self.sample
