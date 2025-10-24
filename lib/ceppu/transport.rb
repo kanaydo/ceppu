@@ -1,11 +1,11 @@
 module Ceppu
   module Transport
     def send_event(payload)
-      uri = URI('http://localhost:6969')
+      uri = URI(ENV.fetch('CEPPU_API_PATH'))
       body = payload.to_json
       req = Net::HTTP::Post.new(uri)
       req['Content-Type'] = 'application/json'
-      # req['Authorization'] = 'Bearer your_token_here' # optional
+      req['Authorization'] = "Token #{ENV.fetch('CEPPU_API_KEY')}"
       req.body = body
 
       Thread.new do
