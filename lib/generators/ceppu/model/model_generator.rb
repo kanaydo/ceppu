@@ -35,6 +35,10 @@ module Ceppu
         # We use a static migration file name
         migration_template 'create_ceppu_logs.rb.tt', "db/migrate/create_#{@table_name}.rb"
       end
+
+      def migration_class_name
+        "ActiveRecord::Migration[#{ActiveRecord::Migration.current_version}]"
+      end
     end
   end
 end
